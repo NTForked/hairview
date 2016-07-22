@@ -23,6 +23,7 @@ public:
     ~OGLWidget();
 
     void setHairModel(const QString& filename);
+    void saveHairMesh(const QString& filename) const;
     void setMethod(RefModel model);
 
 protected:
@@ -48,7 +49,7 @@ private:
     std::unique_ptr<QOpenGLFramebufferObject> opacFbo = nullptr;
 
     std::unique_ptr<Hair> hair;
-    std::unique_ptr<ArcballController> arcball = nullptr;
+    std::unique_ptr<ArcballController> arcball;
 };
 
 #endif  // _OGL_WIDGET_H_

@@ -96,6 +96,11 @@ void MainGui::OnOpenActTriggered() {
 }
 
 void MainGui::OnSaveActTriggered() {
+    QString filename = QFileDialog::getSaveFileName(this,
+        "Save", QString(DATA_DIRECTORY), "Waterfront OBJ (*.obj)");
+    if (filename == "") return;
+    
+    view->saveHairMesh(filename);
 }
 
 void MainGui::OnExportActTriggered() {

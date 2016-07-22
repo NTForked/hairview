@@ -8,6 +8,8 @@
 #include <QtGui/qvector3d.h>
 #include <QtGui/qvector4d.h>
 
+#include <QtWidgets/qmessagebox.h>
+
 #include "common.h"
 #include "hairloader.h"
 #include "arcballcontroller.h"
@@ -71,6 +73,14 @@ void OGLWidget::setHairModel(const QString& filename) {
     iBuffer->allocate(&indices[0], indices.size() * sizeof(unsigned int));
 
     vao->release();
+}
+
+void OGLWidget::saveHairMesh(const QString &filename) const {
+    hair->saveMesh(filename.toStdString());
+    
+    QMessageBox msgBox;
+    msgBox.setText("Successfully Saved!!");
+    msgBox.exec();
 }
 
 void OGLWidget::setMethod(RefModel model) {

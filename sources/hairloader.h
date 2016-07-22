@@ -24,6 +24,8 @@ struct Hair {
     QVector3D diffuse = QVector3D(0.9f, 0.8f, 0.5f);
     QVector3D specular = QVector3D(0.3f, 0.3f, 0.3f);
     RefModel refmodel = RefModel::KajiyaKay;
+    
+    void saveMesh(const std::string& filename) const;
 };
 
 bool loadHair(const std::string& filename, Hair* hair);
